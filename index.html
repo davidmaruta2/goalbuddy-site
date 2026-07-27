@@ -106,8 +106,8 @@
     margin-bottom: 18px;
   }
   .hero h1 {
-    font-size: 48px;
-    line-height: 1.08;
+    font-size: 40px;
+    line-height: 1.18;
     color: var(--navy);
     letter-spacing: -0.01em;
   }
@@ -183,6 +183,78 @@
     font-size: 13px;
     padding: 12px 24px;
     border-radius: 999px;
+  }
+
+  /* ActivityBuddy mode band -- mirrors the hero layout with the app's other real palette */
+  .modes {
+    padding: 0 0 20px;
+  }
+  .modes-inner {
+    background: linear-gradient(180deg, #F7E7EE 0%, #FFFFFF 100%);
+    border-radius: 28px;
+    padding: 48px 40px;
+  }
+  .modes-label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 28px;
+  }
+  .modes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .mode-cell {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .mode-cell .mode-copy { flex: 1; }
+  .mode-cell .mini-phone { flex: none; }
+  .mode-copy .eyebrow.ab { background: #F3DCE7; color: #B84070; }
+  .mode-copy h2 { font-size: 26px; line-height: 1.2; margin-bottom: 12px; }
+  .mode-copy.gb h2 { color: var(--navy); }
+  .mode-copy.ab h2 { color: #7A2450; }
+  .mode-copy p { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0; }
+  .mini-phone {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto;
+    border-radius: 26px;
+    padding: 10px;
+  }
+  .mini-phone.gb { background: var(--navy); }
+  .mini-phone.ab { background: #3D2A55; }
+  .mini-phone-screen {
+    background: #fff;
+    border-radius: 18px;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mini-status { font-size: 10px; font-weight: 700; color: var(--text-muted); }
+  .mini-card { border-radius: 12px; padding: 10px 12px; }
+  .mini-card.gb1 { background: var(--sage-soft); }
+  .mini-card.gb2 { background: var(--cyan-soft); }
+  .mini-card.ab1 { background: #F3DCE7; }
+  .mini-card.ab2 { background: #F1E6F7; }
+  .mini-card .mtitle { font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 12px; }
+  .mode-copy.gb .mtitle, .mini-card.gb1 .mtitle, .mini-card.gb2 .mtitle { color: var(--navy); }
+  .mini-card.ab1 .mtitle, .mini-card.ab2 .mtitle { color: #7A2450; }
+  .mini-card .msub { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+  .mini-fab { align-self: center; font-weight: 700; font-size: 11px; color: #fff; padding: 8px 18px; border-radius: 999px; margin-top: 2px; }
+  .mini-fab.gb { background: var(--sage); }
+  .mini-fab.ab { background: #B84070; }
+  .mode-divider {
+    display: none;
+  }
+  @media (min-width: 861px) {
+    .mode-divider { display: block; }
   }
 
   /* Sections */
@@ -297,9 +369,13 @@
   @media (max-width: 860px) {
     nav.links { display: none; }
     .hero-grid { grid-template-columns: 1fr; }
+    .modes-grid { grid-template-columns: 1fr; gap: 32px; }
+    .modes-inner { padding: 32px 20px; }
+    .mode-cell { flex-direction: column; text-align: center; }
+    .mini-phone { max-width: 160px; }
     .phone-wrap { order: -1; }
     .phone { width: 220px; height: 460px; }
-    .hero h1 { font-size: 36px; }
+    .hero h1 { font-size: 30px; }
     .steps { grid-template-columns: 1fr; }
     .not-dating { grid-template-columns: 1fr; padding: 36px 24px; }
     .mission { padding: 40px 24px; }
@@ -328,7 +404,7 @@
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow">Coming soon</span>
-        <h1>Find your buddy.<br>Achieve your <span class="accent">goal</span>.</h1>
+        <h1>Have a goal or activity?<br>Find a buddy.<br>Achieve it <span class="accent">together</span>.</h1>
         <p class="lead">GoalBuddy matches you with real people working toward the same thing you are - a gym partner, a study buddy, someone to finally learn Spanish with. Led by what you want to achieve, not by a photo.</p>
         <div class="store-row">
           <div class="store-badge" aria-disabled="true">
@@ -361,8 +437,63 @@
               <div class="title">Practising conversational Spanish</div>
               <div class="sub">Weekly video call · all levels</div>
             </div>
-            <div class="phone-fab">Send Interested</div>
+            <div class="phone-fab">Wave</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="modes">
+    <div class="wrap">
+      <div class="modes-inner">
+        <div class="modes-label">One app. Two ways to buddy up.</div>
+        <div class="modes-grid">
+
+          <div class="mode-cell">
+            <div class="mode-copy gb">
+              <span class="eyebrow">GoalBuddy</span>
+              <h2>Working on something long-term? Find your buddy. Achieve your goal.</h2>
+              <p>A gym partner, a study buddy, someone learning the same language. Matched by what you're building toward.</p>
+            </div>
+            <div class="mini-phone gb">
+              <div class="mini-phone-screen">
+                <div class="mini-status">Goal mode</div>
+                <div class="mini-card gb1">
+                  <div class="mtitle">Gym buddy, mornings</div>
+                  <div class="msub">3x a week</div>
+                </div>
+                <div class="mini-card gb2">
+                  <div class="mtitle">Learning Spanish</div>
+                  <div class="msub">Weekly video call</div>
+                </div>
+                <div class="mini-fab gb">Wave</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mode-cell">
+            <div class="mode-copy ab">
+              <span class="eyebrow ab">ActivityBuddy</span>
+              <h2>Doing something today? Find a buddy. Do it together.</h2>
+              <p>Hiking this afternoon, a padel game this weekend, new in town and want company. Matched by what you're doing right now, not a long-term goal.</p>
+            </div>
+            <div class="mini-phone ab">
+              <div class="mini-phone-screen">
+                <div class="mini-status">Activity mode</div>
+                <div class="mini-card ab1">
+                  <div class="mtitle">Hiking today, 2pm</div>
+                  <div class="msub">Stockholm</div>
+                </div>
+                <div class="mini-card ab2">
+                  <div class="mtitle">Padel this weekend</div>
+                  <div class="msub">Looking for a partner</div>
+                </div>
+                <div class="mini-fab ab">Wave</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -389,7 +520,7 @@
         <div class="step">
           <div class="num">3</div>
           <h3>Achieve together</h3>
-          <p>Send Interested, get accepted, and start a real conversation. No unrestricted messaging until you're both in.</p>
+          <p>Wave, get accepted, and start a real conversation. No unrestricted messaging until you're both in.</p>
         </div>
       </div>
     </div>
